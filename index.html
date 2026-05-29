@@ -1,0 +1,610 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Jossimar Meza — Tech Lead & Arquitecto de Soluciones</title>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,wght@0,300;0,400;0,500;0,600;1,300&family=DM+Serif+Display:ital@0;1&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --ink:        #0d1b2e;
+    --ink2:       #2c3e55;
+    --ink3:       #607080;
+    --paper:      #f4f6f9;
+    --surface:    #ffffff;
+    --border:     #dce3ec;
+    --border2:    #b8c5d4;
+    --accent:     #1a3a6b;
+    --accent2:    #0f2548;
+    --accent-mid: #4a7fc1;
+    --accent-bg:  #eaf0f8;
+    --accent-lt:  #d0dff2;
+    --gold:       #c8a84b;
+    --shadow-sm:  0 1px 4px rgba(13,27,46,0.07), 0 4px 16px rgba(13,27,46,0.04);
+    --shadow-md:  0 4px 24px rgba(13,27,46,0.1), 0 1px 4px rgba(13,27,46,0.05);
+    --r-sm: 8px; --r-md: 12px; --r-lg: 18px; --r-xl: 24px;
+  }
+
+  html { scroll-behavior: smooth; }
+  body {
+    font-family: 'DM Sans', sans-serif;
+    background: var(--paper);
+    color: var(--ink);
+    line-height: 1.6;
+    font-size: 15px;
+    -webkit-font-smoothing: antialiased;
+  }
+  a { color: inherit; text-decoration: none; }
+
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(22px); }
+    to   { opacity: 1; transform: translateY(0); }
+  }
+  @keyframes pulse {
+    0%,100% { opacity:1; } 50% { opacity:0.35; }
+  }
+  .a1{animation:fadeUp .6s .05s both;}
+  .a2{animation:fadeUp .6s .15s both;}
+  .a3{animation:fadeUp .6s .25s both;}
+  .a4{animation:fadeUp .6s .35s both;}
+  .a5{animation:fadeUp .6s .45s both;}
+
+  /* ── NAV ── */
+  nav {
+    position: sticky; top: 0; z-index: 100;
+    background: rgba(13,27,46,0.97);
+    backdrop-filter: blur(14px);
+    border-bottom: 1px solid rgba(255,255,255,0.08);
+    padding: 0 5vw;
+  }
+  .nav-inner {
+    display: flex; align-items: center;
+    justify-content: space-between; height: 62px;
+  }
+  .nav-logo {
+    font-family: 'DM Serif Display', serif;
+    font-size: 19px; color: #fff;
+    display: flex; align-items: center; gap: 8px;
+  }
+  .nav-logo-dot {
+    width: 7px; height: 7px; border-radius: 50%;
+    background: var(--gold);
+  }
+  .nav-links { display: flex; gap: 4px; list-style: none; }
+  .nav-links a {
+    font-size: 13px; font-weight: 500;
+    color: rgba(255,255,255,0.6);
+    padding: 6px 14px; border-radius: var(--r-sm);
+    transition: background .15s, color .15s;
+  }
+  .nav-links a:hover { background: rgba(255,255,255,0.08); color: #fff; }
+  .nav-cta {
+    font-size: 13px; font-weight: 600;
+    padding: 8px 20px;
+    background: var(--gold); color: var(--ink);
+    border: none; border-radius: var(--r-sm);
+    cursor: pointer; transition: all .15s;
+    letter-spacing: .2px;
+  }
+  .nav-cta:hover { background: #d4b05e; transform: translateY(-1px); }
+
+  /* ── HERO ── */
+  .hero {
+    background: linear-gradient(135deg, #0d1b2e 0%, #1a3a6b 60%, #1e4d8c 100%);
+    padding: 80px 5vw 70px;
+    position: relative; overflow: hidden;
+  }
+  .hero::before {
+    content: '';
+    position: absolute; inset: 0;
+    background: radial-gradient(ellipse at 70% 50%, rgba(74,127,193,0.18) 0%, transparent 65%);
+  }
+  .hero::after {
+    content: '';
+    position: absolute; bottom: -1px; left: 0; right: 0; height: 60px;
+    background: var(--paper);
+    clip-path: ellipse(55% 100% at 50% 100%);
+  }
+  .hero-inner {
+    display: grid;
+    grid-template-columns: 1fr 340px;
+    gap: 64px; align-items: center;
+    position: relative; z-index: 1;
+  }
+  .hero-available {
+    display: inline-flex; align-items: center; gap: 8px;
+    font-size: 12px; font-weight: 500; color: rgba(255,255,255,0.8);
+    background: rgba(255,255,255,0.1);
+    border: 1px solid rgba(255,255,255,0.2);
+    padding: 5px 14px; border-radius: 20px;
+    margin-bottom: 24px;
+  }
+  .hero-dot {
+    width: 6px; height: 6px; border-radius: 50%;
+    background: #5ddd9a;
+    animation: pulse 2s infinite;
+  }
+  .hero h1 {
+    font-family: 'DM Serif Display', serif;
+    font-size: clamp(38px, 5vw, 62px);
+    line-height: 1.08; letter-spacing: -.5px;
+    color: #fff; margin-bottom: 8px;
+  }
+  .hero h1 em { color: var(--gold); font-style: italic; }
+  .hero-sub {
+    font-family: 'DM Serif Display', serif;
+    font-size: clamp(26px, 3vw, 40px);
+    color: rgba(255,255,255,0.5);
+    font-style: italic; margin-bottom: 24px;
+    line-height: 1.15;
+  }
+  .hero-desc {
+    font-size: 15px; color: rgba(255,255,255,0.7);
+    line-height: 1.8; max-width: 540px;
+    margin-bottom: 32px; font-weight: 300;
+  }
+  .hero-btns { display: flex; gap: 10px; flex-wrap: wrap; margin-bottom: 32px; }
+  .btn-gold {
+    font-size: 14px; font-weight: 600;
+    padding: 11px 26px;
+    background: var(--gold); color: var(--ink);
+    border: none; border-radius: var(--r-sm);
+    cursor: pointer; transition: all .15s;
+  }
+  .btn-gold:hover { background: #d4b05e; transform: translateY(-1px); box-shadow: 0 4px 14px rgba(200,168,75,.4); }
+  .btn-ghost {
+    font-size: 14px; font-weight: 500;
+    padding: 11px 22px;
+    background: transparent; color: #fff;
+    border: 1px solid rgba(255,255,255,0.3);
+    border-radius: var(--r-sm);
+    cursor: pointer; transition: all .15s;
+  }
+  .btn-ghost:hover { background: rgba(255,255,255,0.1); border-color: rgba(255,255,255,0.6); }
+  .hero-certs { display: flex; flex-wrap: wrap; gap: 7px; }
+  .cert-pill {
+    font-size: 11px; font-weight: 500;
+    padding: 4px 11px; border-radius: 20px;
+    background: rgba(255,255,255,0.08);
+    border: 1px solid rgba(255,255,255,0.16);
+    color: rgba(255,255,255,0.75);
+    transition: all .15s;
+  }
+  .cert-pill:hover { background: rgba(255,255,255,0.15); color: #fff; }
+
+  /* HERO METRICS */
+  .hero-metrics { display: flex; flex-direction: column; gap: 12px; }
+  .metric-row { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+  .metric-card {
+    background: rgba(255,255,255,0.08);
+    border: 1px solid rgba(255,255,255,0.14);
+    border-radius: var(--r-md);
+    padding: 18px 20px;
+    transition: background .2s;
+  }
+  .metric-card:hover { background: rgba(255,255,255,0.13); }
+  .metric-num {
+    font-family: 'DM Serif Display', serif;
+    font-size: 32px; color: #fff;
+    line-height: 1;
+  }
+  .metric-num em { color: var(--gold); font-style: normal; }
+  .metric-label { font-size: 11px; color: rgba(255,255,255,0.5); margin-top: 5px; line-height: 1.4; }
+
+  /* ── WRAPPER SECTIONS ── */
+  .section-wrap { padding: 64px 5vw; }
+  .section-wrap + .section-wrap { border-top: 1px solid var(--border); }
+
+  .eyebrow {
+    font-size: 11px; font-weight: 700; letter-spacing: 2.5px;
+    text-transform: uppercase; color: var(--accent-mid);
+    margin-bottom: 6px;
+    display: flex; align-items: center; gap: 10px;
+  }
+  .eyebrow::after {
+    content:''; height: 1px; width: 60px;
+    background: var(--accent-lt);
+  }
+  .sec-title {
+    font-family: 'DM Serif Display', serif;
+    font-size: clamp(26px, 3vw, 36px);
+    color: var(--ink); margin-bottom: 40px;
+  }
+
+  /* ── EXPERIENCE ── */
+  .exp-list { display: flex; flex-direction: column; }
+  .exp-item {
+    display: grid;
+    grid-template-columns: 180px 28px 1fr;
+    gap: 0 16px;
+    padding: 28px 0;
+    border-bottom: 1px solid var(--border);
+  }
+  .exp-item:last-child { border-bottom: none; }
+  .exp-period { font-size: 12px; color: var(--ink3); padding-top: 3px; line-height: 1.7; }
+  .exp-period strong { display: block; font-size: 13px; font-weight: 600; color: var(--ink2); margin-bottom: 2px; }
+  .exp-line-col { display: flex; flex-direction: column; align-items: center; }
+  .exp-dot {
+    width: 11px; height: 11px; border-radius: 50%; flex-shrink: 0;
+    background: var(--accent-bg); border: 2px solid var(--accent-mid);
+    margin-top: 3px;
+  }
+  .exp-line {
+    flex: 1; width: 1px;
+    background: var(--border); margin-top: 6px;
+  }
+  .exp-item:last-child .exp-line { display: none; }
+  .exp-title { font-size: 15px; font-weight: 600; color: var(--ink); margin-bottom: 3px; }
+  .exp-company { font-size: 13px; color: var(--accent-mid); font-weight: 500; margin-bottom: 8px; }
+  .exp-desc { font-size: 13px; color: var(--ink2); line-height: 1.7; margin-bottom: 12px; font-weight: 300; }
+  .tags { display: flex; flex-wrap: wrap; gap: 5px; }
+  .tag {
+    font-size: 11px; font-weight: 500;
+    padding: 3px 9px; border-radius: 20px;
+    background: var(--accent-bg); color: var(--accent2);
+    border: 1px solid var(--accent-lt);
+  }
+  .tag-n {
+    font-size: 11px; font-weight: 500;
+    padding: 3px 9px; border-radius: 20px;
+    background: #fff; color: var(--ink3);
+    border: 1px solid var(--border);
+  }
+
+  /* ── PROJECTS ── */
+  .proj-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(420px, 1fr));
+    gap: 16px;
+  }
+  .proj-card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: var(--r-lg);
+    padding: 28px 28px 22px;
+    transition: all .2s; position: relative; overflow: hidden;
+  }
+  .proj-card::before {
+    content:''; position: absolute;
+    top:0; left:0; right:0; height:3px;
+    background: linear-gradient(90deg, var(--accent), var(--accent-mid));
+    opacity:0; transition: opacity .2s;
+  }
+  .proj-card:hover { border-color: var(--accent-mid); box-shadow: var(--shadow-md); transform: translateY(-3px); }
+  .proj-card:hover::before { opacity: 1; }
+  .proj-num {
+    font-family: 'DM Serif Display', serif;
+    font-size: 13px; font-weight: 400;
+    color: var(--accent-mid); margin-bottom: 12px;
+    letter-spacing: .5px;
+  }
+  .proj-name { font-size: 16px; font-weight: 600; margin-bottom: 10px; color: var(--ink); }
+  .proj-desc { font-size: 13px; color: var(--ink2); line-height: 1.7; margin-bottom: 14px; font-weight: 300; }
+  .proj-result {
+    font-size: 12px; font-weight: 600; color: var(--accent2);
+    display: flex; align-items: center; gap: 6px;
+    padding: 8px 14px; background: var(--accent-bg);
+    border-radius: var(--r-sm); margin-bottom: 14px;
+    border-left: 3px solid var(--accent-mid);
+  }
+
+  /* ── SKILLS ── */
+  .skills-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 12px;
+  }
+  .skill-card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: var(--r-md);
+    padding: 20px 22px;
+    transition: all .15s;
+  }
+  .skill-card:hover { border-color: var(--accent-mid); box-shadow: var(--shadow-sm); }
+  .skill-cat {
+    font-size: 10px; font-weight: 700; letter-spacing: 1.5px;
+    text-transform: uppercase; color: var(--accent);
+    margin-bottom: 10px;
+    display: flex; align-items: center; gap: 7px;
+  }
+  .skill-cat::before { content:''; width:14px; height:2px; background:var(--accent-mid); border-radius:2px; }
+  .skill-items { font-size: 13px; color: var(--ink2); line-height: 1.85; }
+
+  /* ── CONTACT ── */
+  .contact-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 12px;
+  }
+  .contact-card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: var(--r-md);
+    padding: 20px 22px;
+    display: flex; align-items: center; gap: 16px;
+    transition: all .15s; cursor: pointer;
+  }
+  .contact-card:hover { border-color: var(--accent-mid); box-shadow: var(--shadow-sm); transform: translateY(-2px); }
+  .contact-icon {
+    width: 42px; height: 42px; border-radius: var(--r-sm);
+    background: var(--accent-bg);
+    border: 1px solid var(--accent-lt);
+    display: flex; align-items: center; justify-content: center;
+    color: var(--accent); font-size: 18px; flex-shrink: 0;
+    font-weight: 700;
+  }
+  .contact-type { font-size: 11px; color: var(--ink3); margin-bottom: 3px; }
+  .contact-val { font-size: 13px; font-weight: 500; color: var(--ink); }
+
+  /* ── FOOTER ── */
+  footer {
+    background: var(--ink);
+    padding: 28px 5vw;
+    display: flex; justify-content: space-between;
+    align-items: center; flex-wrap: wrap; gap: 12px;
+  }
+  .footer-l { font-size: 12px; color: rgba(255,255,255,0.4); }
+  .footer-r {
+    font-family: 'DM Serif Display', serif;
+    font-size: 15px; color: var(--gold);
+    font-style: italic;
+  }
+
+  /* ── RESPONSIVE ── */
+  @media (max-width: 900px) {
+    .hero-inner { grid-template-columns: 1fr; gap: 40px; }
+    .hero-metrics { display: none; }
+  }
+  @media (max-width: 640px) {
+    .nav-links { display: none; }
+    .hero h1 { font-size: 34px; }
+    .proj-grid { grid-template-columns: 1fr; }
+    .exp-item { grid-template-columns: 1fr; gap: 6px; }
+    .exp-line-col { display: none; }
+    .skills-grid { grid-template-columns: 1fr; }
+  }
+
+  ::-webkit-scrollbar { width: 5px; }
+  ::-webkit-scrollbar-track { background: var(--paper); }
+  ::-webkit-scrollbar-thumb { background: var(--border2); border-radius: 3px; }
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <div class="nav-inner">
+    <div class="nav-logo">
+      Jossimar Meza <span class="nav-logo-dot"></span>
+    </div>
+    <ul class="nav-links">
+      <li><a href="#experiencia">Experiencia</a></li>
+      <li><a href="#proyectos">Proyectos</a></li>
+      <li><a href="#stack">Stack</a></li>
+      <li><a href="#contacto">Contacto</a></li>
+    </ul>
+    <button class="nav-cta" onclick="alert('Conecta aquí tu archivo CV descargable')">↓ Descargar CV</button>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-inner">
+    <div>
+      <div class="hero-available a1">
+        <span class="hero-dot"></span>
+        Disponible · Remoto / Lima / Arequipa
+      </div>
+      <h1 class="a2">Tech Lead &amp;<br><em>Arquitecto</em></h1>
+      <div class="hero-sub a2">de Soluciones</div>
+      <p class="hero-desc a3">
+        Ingeniero de Sistemas con 12 años construyendo software crítico para seguros, retail y logística en Perú. Fundador de SyStark Solutions — dos productos SaaS con clientes activos en el mercado peruano.
+      </p>
+      <div class="hero-btns a4">
+        <a href="mailto:jossimarmeza@outlook.com.pe"><button class="btn-gold">✉ Contactar</button></a>
+        <a href="https://linkedin.com/in/jossimar-abel-meza-postigo-351138167" target="_blank"><button class="btn-ghost">LinkedIn ↗</button></a>
+        <a href="https://github.com/jossimarmeza" target="_blank"><button class="btn-ghost">GitHub ↗</button></a>
+      </div>
+      <div class="hero-certs a5">
+        <span class="cert-pill">☁ AWS Cloud Practitioner</span>
+        <span class="cert-pill">⚙ ITIL® 4 Foundation</span>
+        <span class="cert-pill">🗄 Oracle OCA 12c</span>
+        <span class="cert-pill">⚡ OutSystems ODC</span>
+        <span class="cert-pill">📋 ESAN · En curso</span>
+        <span class="cert-pill">◈ Scrum Foundation</span>
+      </div>
+    </div>
+
+    <div class="hero-metrics a3">
+      <div class="metric-row">
+        <div class="metric-card">
+          <div class="metric-num">12<em>+</em></div>
+          <div class="metric-label">Años de experiencia</div>
+        </div>
+        <div class="metric-card">
+          <div class="metric-num">65<em>%</em></div>
+          <div class="metric-label">Reducción costos operativos</div>
+        </div>
+      </div>
+      <div class="metric-row">
+        <div class="metric-card">
+          <div class="metric-num">2</div>
+          <div class="metric-label">Productos SaaS activos</div>
+        </div>
+        <div class="metric-card">
+          <div class="metric-num">5<em>+</em></div>
+          <div class="metric-label">Certificaciones vigentes</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- EXPERIENCIA -->
+<section class="section-wrap" id="experiencia">
+  <div class="eyebrow">Trayectoria</div>
+  <div class="sec-title">Experiencia profesional</div>
+  <div class="exp-list">
+
+    <div class="exp-item">
+      <div class="exp-period"><strong>2024 — Hoy</strong>Arequipa, Perú<br>Remoto</div>
+      <div class="exp-line-col"><div class="exp-dot"></div><div class="exp-line"></div></div>
+      <div>
+        <div class="exp-title">Co-Fundador &amp; Tech Lead</div>
+        <div class="exp-company">SyStark Solutions</div>
+        <div class="exp-desc">Empresa de software B2B especializada en productos SaaS para PYME peruanas. Responsable de la arquitectura, decisiones de stack y desarrollo de los productos.</div>
+        <div class="tags">
+          <span class="tag">SaaS multi-tenant</span><span class="tag">Next.js 15</span><span class="tag">TypeScript</span><span class="tag">PostgreSQL</span><span class="tag">AWS</span><span class="tag-n">2 productos activos</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="exp-item">
+      <div class="exp-period"><strong>2022 — Hoy</strong>Lima, Perú<br>Híbrido</div>
+      <div class="exp-line-col"><div class="exp-dot"></div><div class="exp-line"></div></div>
+      <div>
+        <div class="exp-title">Analista de Planeamiento de Operaciones (Desarrollo de Software)</div>
+        <div class="exp-company">La Positiva Seguros y Reaseguros S.A.</div>
+        <div class="exp-desc">Automatización de procesos críticos de cobranza, distribución de cartera y digitalización de formularios empresariales. Ecosistema Power Platform completo para el área de Emisión.</div>
+        <div class="tags">
+          <span class="tag">.NET / C#</span><span class="tag">Microservicios</span><span class="tag">Power Platform</span><span class="tag">Copilot Studio</span><span class="tag">OutSystems</span><span class="tag">SQL Server</span><span class="tag-n">−62% gasto operativo</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="exp-item">
+      <div class="exp-period"><strong>2015 — 2022</strong>Arequipa, Perú<br>Presencial</div>
+      <div class="exp-line-col"><div class="exp-dot"></div><div class="exp-line"></div></div>
+      <div>
+        <div class="exp-title">Analista de Sistemas Senior</div>
+        <div class="exp-company">Lápices y Conexos S.A. — Layconsa</div>
+        <div class="exp-desc">Apps móviles de cobranza y logística, continuidad operativa durante la pandemia con soluciones web, y pipelines ETL para inteligencia de negocio.</div>
+        <div class="tags">
+          <span class="tag">Xamarin</span><span class="tag">.NET MVC</span><span class="tag">SSIS / SSRS</span><span class="tag">Power BI</span><span class="tag">SQL Server</span><span class="tag-n">−60% procesos manuales</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="exp-item">
+      <div class="exp-period"><strong>2013 — 2015</strong>Arequipa, Perú<br>Presencial</div>
+      <div class="exp-line-col"><div class="exp-dot"></div><div class="exp-line"></div></div>
+      <div>
+        <div class="exp-title">Encargado de Sistemas</div>
+        <div class="exp-company">TSD Distribuciones — Quimera HG</div>
+        <div class="exp-desc">Reingeniería de módulos de logística y contabilidad en .NET, integración de datos históricos multi-fuente y análisis funcional del ERP empresarial.</div>
+        <div class="tags">
+          <span class="tag">.NET</span><span class="tag">Web API</span><span class="tag">MySQL</span><span class="tag">PostgreSQL</span><span class="tag-n">−65% incumplimientos tributarios</span>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- PROYECTOS -->
+<section class="section-wrap" id="proyectos" style="background:var(--surface)">
+  <div class="eyebrow">Trabajo selecto</div>
+  <div class="sec-title">Proyectos destacados</div>
+  <div class="proj-grid">
+
+    <div class="proj-card">
+      <div class="proj-num">Proyecto 01</div>
+      <div class="proj-name">SaaS Logística &amp; Ventas</div>
+      <div class="proj-desc">Plataforma multi-tenant para gestión logística y ventas para PYME peruanas. Aislamiento por tenant, autenticación propia y control de acceso por roles.</div>
+      <div class="proj-result">↑ Clientes activos en producción · SyStark Solutions</div>
+      <div class="tags"><span class="tag">Next.js 15</span><span class="tag">TypeScript</span><span class="tag">PostgreSQL</span><span class="tag-n">Multi-tenant</span><span class="tag-n">Cloud</span></div>
+    </div>
+
+    <div class="proj-card">
+      <div class="proj-num">Proyecto 02</div>
+      <div class="proj-name">SaaS Contabilidad PCGE / SUNAT</div>
+      <div class="proj-desc">Sistema contable multi-tenant integrado con SUNAT SIRE para PYME peruanas. Misma arquitectura cloud robusta que el producto de logística.</div>
+      <div class="proj-result">↑ Clientes activos en producción · SyStark Solutions</div>
+      <div class="tags"><span class="tag">Next.js 15</span><span class="tag">TypeScript</span><span class="tag">PostgreSQL</span><span class="tag-n">SUNAT API</span><span class="tag-n">PCGE</span></div>
+    </div>
+
+    <div class="proj-card">
+      <div class="proj-num">Proyecto 03</div>
+      <div class="proj-name">Ecosistema Power Platform — Emisión</div>
+      <div class="proj-desc">Apps, flujos y chatbots para automatización en área de Emisión de aseguradora top-5 en Perú. Chatbots de consulta de manuales y procedimientos con Copilot Studio e IA Builder.</div>
+      <div class="proj-result">↓ Trabajo manual eliminado en actividades de alto volumen</div>
+      <div class="tags"><span class="tag">Power Apps</span><span class="tag">Copilot Studio</span><span class="tag">IA Builder</span><span class="tag-n">SharePoint</span><span class="tag-n">Power Automate</span></div>
+    </div>
+
+    <div class="proj-card">
+      <div class="proj-num">Proyecto 04</div>
+      <div class="proj-name">Plataforma de Cobranza .NET</div>
+      <div class="proj-desc">Microservicios para comunicaciones masivas de cobranza a clientes, entidades de Estado y endosatarios en aseguradora. Reemplazó un proceso 100% manual.</div>
+      <div class="proj-result">↓ 62% reducción del gasto operativo</div>
+      <div class="tags"><span class="tag">.NET</span><span class="tag">Microservicios</span><span class="tag">SQL Server</span><span class="tag-n">AWS</span><span class="tag-n">OutSystems</span></div>
+    </div>
+
+  </div>
+</section>
+
+<!-- STACK -->
+<section class="section-wrap" id="stack">
+  <div class="eyebrow">Herramientas</div>
+  <div class="sec-title">Stack técnico</div>
+  <div class="skills-grid">
+    <div class="skill-card"><div class="skill-cat">Arquitectura</div><div class="skill-items">Microservicios · API REST · MVC · MVVM<br>N-Capas · SOAP · Event-Driven · Multi-tenant SaaS</div></div>
+    <div class="skill-card"><div class="skill-cat">Backend</div><div class="skill-items">C# / .NET · ASP.NET · Node.js · Python<br>VB.NET · OutSystems · Java</div></div>
+    <div class="skill-card"><div class="skill-cat">Frontend / Mobile</div><div class="skill-items">Next.js 15 · TypeScript · Blazor (WASM)<br>Xamarin · Power Apps · AppSheet</div></div>
+    <div class="skill-card"><div class="skill-cat">Base de datos</div><div class="skill-items">SQL Server · PostgreSQL · MySQL<br>Oracle · DB2 · DynamoDB · SSIS / SSRS</div></div>
+    <div class="skill-card"><div class="skill-cat">Cloud &amp; DevOps</div><div class="skill-items">AWS (EC2, RDS, S3, Lambda, API GW, CloudFront)<br>GitHub · Docker</div></div>
+    <div class="skill-card"><div class="skill-cat">Low-Code / BI</div><div class="skill-items">Power Platform · OutSystems · Power BI<br>Google Apps Script · AppSheet</div></div>
+    <div class="skill-card"><div class="skill-cat">Modelado &amp; Diagramación</div><div class="skill-items">draw.io · Cloudcraft · Microsoft Visio<br>Miro · UML</div></div>
+    <div class="skill-card"><div class="skill-cat">Herramientas &amp; IA</div><div class="skill-items">Jira · GitHub · Docker<br>Claude · ChatGPT · Gemini · GitHub Copilot</div></div>
+    <div class="skill-card"><div class="skill-cat">Metodologías</div><div class="skill-items">Scrum · ITIL 4 · Análisis funcional<br>Gestión de requerimientos</div></div>
+  </div>
+</section>
+
+<!-- CONTACTO -->
+<section class="section-wrap" id="contacto" style="background:var(--surface)">
+  <div class="eyebrow">Hablemos</div>
+  <div class="sec-title">Contacto</div>
+  <div class="contact-grid">
+    <a href="mailto:jossimarmeza@outlook.com.pe">
+      <div class="contact-card">
+        <div class="contact-icon">✉</div>
+        <div><div class="contact-type">Correo electrónico</div><div class="contact-val">jossimarmeza@outlook.com.pe</div></div>
+      </div>
+    </a>
+    <a href="https://linkedin.com/in/jossimar-abel-meza-postigo-351138167" target="_blank">
+      <div class="contact-card">
+        <div class="contact-icon" style="font-size:14px">in</div>
+        <div><div class="contact-type">LinkedIn</div><div class="contact-val">/in/jossimar-abel-meza-postigo</div></div>
+      </div>
+    </a>
+    <a href="https://github.com/jossimarmeza" target="_blank">
+      <div class="contact-card">
+        <div class="contact-icon" style="font-size:14px">GH</div>
+        <div><div class="contact-type">GitHub</div><div class="contact-val">github.com/jossimarmeza</div></div>
+      </div>
+    </a>
+    <div class="contact-card">
+      <div class="contact-icon">◎</div>
+      <div><div class="contact-type">Ubicación</div><div class="contact-val">Arequipa, Perú · Remoto / Lima</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-l">© 2026 Jossimar Abel Meza Postigo · Ing. de Sistemas CIP 308329</div>
+  <div class="footer-r">jossimar.systark.com</div>
+</footer>
+
+<script>
+  document.querySelectorAll('a[href^="#"]').forEach(a => {
+    a.addEventListener('click', e => {
+      e.preventDefault();
+      document.querySelector(a.getAttribute('href'))?.scrollIntoView({ behavior: 'smooth' });
+    });
+  });
+</script>
+</body>
+</html>
