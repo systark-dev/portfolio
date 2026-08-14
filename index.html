@@ -3,8 +3,8 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Jossimar Meza · Senior Software Engineer</title>
-<meta name="description" content="Ingeniero de Sistemas con 12 años construyendo software para seguros, retail y logística. .NET, SQL Server, Power Platform.">
+<title>Jossimar Meza · Senior Software Engineer &middot; Arquitecto de Soluciones</title>
+<meta name="description" content="Ingeniero de Sistemas con 12 años construyendo software para seguros, retail y logística. Automatización de procesos críticos y sistemas auditables en entornos regulados. .NET, SQL Server, OutSystems, Power Platform.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,600;9..144,700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
@@ -179,8 +179,8 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--gold);outline-offse
     <div>
       <div class="status"><span class="dot"></span> Disponible · Remoto / Lima / Arequipa</div>
       <h1>Senior <em>Software Engineer</em></h1>
-      <div class="role-sub">.NET · SQL Server · Power Platform</div>
-      <p class="hero-p">Ingeniero de Sistemas con 12 años construyendo software para seguros, retail y logística en Perú. Actualmente desarrollo automatizaciones en La Positiva Seguros. Cofundador de SyStark Solutions, con dos productos SaaS en producción para PYMEs peruanas.</p>
+      <div class="role-sub">Arquitecto de Soluciones · .NET · SQL Server · OutSystems</div>
+      <p class="hero-p">Ingeniero de Sistemas con 12 años construyendo software para seguros, retail y logística en Perú. Automatizo procesos manuales críticos con sistemas que dejan rastro auditable, en operaciones con exposición regulatoria. Actualmente en La Positiva Seguros y cofundador de SyStark Solutions, con productos SaaS en producción.</p>
     </div>
 
     <div class="sig">
@@ -192,22 +192,22 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--gold);outline-offse
       <div class="sig-block">
         <div class="sig-label">Formación</div>
         <div class="edu">
-          <strong>Ingeniería de Sistemas · Titulado</strong>
-          <span>Universidad Católica de Santa María · Arequipa</span>
+          <strong>Diplomado Internacional en Gerencia de Proyectos</strong>
+          <span>ESAN · Lima · En curso (2026)</span>
         </div>
         <div class="edu">
-          <strong>Diplomado Internacional en Gerencia de Proyectos</strong>
-          <span>ESAN · Lima</span>
+          <strong>Ingeniería de Sistemas · Titulado</strong>
+          <span>Universidad Católica de Santa María · Arequipa</span>
         </div>
       </div>
 
       <div class="sig-block">
         <div class="sig-label">Certificaciones</div>
         <div class="certs">
-          <span class="cert">AWS Cloud Practitioner</span>
+          <span class="cert">OutSystems ODC</span>
           <span class="cert">ITIL 4 Foundation</span>
           <span class="cert">Oracle OCA 12c</span>
-          <span class="cert">OutSystems ODC</span>
+          <span class="cert">AWS Cloud Practitioner</span>
           <span class="cert">Scrum Foundation</span>
         </div>
       </div>
@@ -223,49 +223,81 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--gold);outline-offse
     <article class="case">
       <div class="case-top">
         <div>
-          <h3>Comunicaciones masivas a clientes y endosatarios</h3>
-          <div class="case-ctx">.NET + SQL Server</div>
+          <h3>Notificaciones contractuales con efecto regulatorio</h3>
+          <div class="case-ctx">.NET · WPF · SQL Server</div>
         </div>
-        <div class="case-metric">450K<small>registros / mes</small></div>
+        <div class="case-metric">450K<small>registros por corrida</small></div>
       </div>
       <div class="case-body">
-        <div class="cb"><h4>Problema</h4><p>El envío de cartas se armaba manualmente. Cada cambio de criterio dependía de que alguien lo aplicara a mano, con errores recurrentes de destinatario.</p></div>
-        <div class="cb"><h4>Decisión</h4><p>Construí una plataforma .NET sobre el datamart corporativo con las reglas de negocio como configuración editable, no como código. El área de Operaciones cambia criterios sin abrir un ticket a TI.</p></div>
-        <div class="cb"><h4>Resultado</h4><p>Proceso automatizado end-to-end, sin errores de envío y sin dependencia técnica para ajustes de criterio.</p></div>
+        <div class="cb"><h4>Problema</h4><p>La emisión vivía en una macro superada por el volumen y las reglas acumuladas. Parte de esas comunicaciones tiene efecto regulatorio ante la SBS: un envío indebido no es un bug, es exposición legal.</p></div>
+        <div class="cb"><h4>Decisión</h4><p>Plataforma .NET/WPF con las reglas como configuración editable por Operaciones, capa de datos propia para sostener el volumen, y auditoría de inclusión y exclusión desde el diseño — no como reporte posterior.</p></div>
+        <div class="cb"><h4>Resultado</h4><p>De 4-5 horas a 10-12 minutos por corrida. Cada emisión se sustenta ante SBS y Legal documento por documento. TI adoptó la herramienta para su gestión corporativa.</p></div>
       </div>
-      <div class="case-tags"><span class="tag">C# / .NET</span><span class="tag">SQL Server</span><span class="tag">Datamart</span><span class="tag">Motor de reglas</span></div>
+      <div class="case-tags"><span class="tag">C# / .NET</span><span class="tag">WPF</span><span class="tag">SQL Server</span><span class="tag">API REST</span><span class="tag">Motor de reglas</span><span class="tag">Auditoría</span></div>
     </article>
 
     <article class="case">
       <div class="case-top">
         <div>
-          <h3>Distribución de cartera de cobranza · ramo SPF</h3>
-          <div class="case-ctx">.NET + SQL Server</div>
+          <h3>Portal de autogestión para corredores</h3>
+          <div class="case-ctx">OutSystems · backend en AWS</div>
         </div>
-        <div class="case-metric">180K<small>registros / mes</small></div>
+        <div class="case-metric">60%<small>autogestión · meta: 50%</small></div>
       </div>
       <div class="case-body">
-        <div class="cb"><h4>Problema</h4><p>La asignación mensual de cartera tomaba días completos de trabajo manual al equipo de cobranza.</p></div>
-        <div class="cb"><h4>Decisión</h4><p>Herramienta .NET que lee el datamart, aplica la lógica de distribución y clasifica la cartera en pendientes, anulados y cobrados, con reportes de desempeño generados automáticamente.</p></div>
-        <div class="cb"><h4>Resultado</h4><p>El proceso pasó de días a minutos. El equipo dejó de operar la distribución y pasó a trabajar sobre sus resultados.</p></div>
+        <div class="cb"><h4>Problema</h4><p>El corredor llenaba un formulario físico y lo derivaba a un emisor, que creaba al cliente manualmente en el sistema core. El flujo dependía de disponibilidad interna y no escalaba.</p></div>
+        <div class="cb"><h4>Decisión</h4><p>Canal digital en OutSystems dentro de un squad ágil. Desarrollé frontend, integración de servicios y capas transversales sobre una arquitectura con backend en AWS.</p></div>
+        <div class="cb"><h4>Resultado</h4><p>La autogestión alcanzó 60% al cierre del año, sobre una meta corporativa de 50%. Implementé el tablero Power BI que midió la adopción por ramo y corredor.</p></div>
       </div>
-      <div class="case-tags"><span class="tag">C# / .NET</span><span class="tag">SQL Server</span><span class="tag">Reportería</span></div>
+      <div class="case-tags"><span class="tag">OutSystems</span><span class="tag">API REST</span><span class="tag">AWS</span><span class="tag">Power BI</span><span class="tag">Scrum</span></div>
     </article>
 
     <article class="case">
       <div class="case-top">
         <div>
-          <h3>Ecosistema de automatización interno</h3>
+          <h3>Sistema de gestión de portafolio de iniciativas</h3>
+          <div class="case-ctx">Power Apps · SharePoint · Power Automate</div>
+        </div>
+        <div class="case-metric">Propia<small>iniciativa no solicitada</small></div>
+      </div>
+      <div class="case-body">
+        <div class="cb"><h4>Problema</h4><p>Las iniciativas del área se gestionaban en una hoja de cálculo compartida. Cada evaluador aplicaba sus propios criterios y la gerencia no tenía visibilidad de en qué trabajaba el equipo.</p></div>
+        <div class="cb"><h4>Decisión</h4><p>Diseñé el marco de evaluación antes que el software: valor, esfuerzo y riesgo con matriz de probabilidad-impacto, objetivos SMART, beneficios con línea base y meta, y priorización automática. Todo dentro de los límites de la licencia básica.</p></div>
+        <div class="cb"><h4>Resultado</h4><p>La gerencia ganó visibilidad del portafolio y de la carga por analista. Hoy está en evaluación para escalar como punto de entrada único de iniciativas de todas las gerencias.</p></div>
+      </div>
+      <div class="case-tags"><span class="tag">Power Apps</span><span class="tag">Power Automate</span><span class="tag">SharePoint</span><span class="tag">Gestión de portafolio</span></div>
+    </article>
+
+    <article class="case">
+      <div class="case-top">
+        <div>
+          <h3>Gestión de cartera de cobranza · ramo SPF</h3>
+          <div class="case-ctx">.NET · SQL Server</div>
+        </div>
+        <div class="case-metric">5-10 min<small>antes: días</small></div>
+      </div>
+      <div class="case-body">
+        <div class="cb"><h4>Problema</h4><p>La asignación mensual de cartera a gestores tomaba días de trabajo manual sobre archivos dispersos, y los reportes de efectividad no eran consistentes.</p></div>
+        <div class="cb"><h4>Decisión</h4><p>Aplicación de gestión con asignación individual o masiva, cierre de período con contingencia manual restringida por perfil e histórico preservado para consulta y auditoría posterior.</p></div>
+        <div class="cb"><h4>Resultado</h4><p>El proceso pasó de días a minutos. Sus reportes de efectividad son hoy la base de cálculo de la remuneración variable de gestores y supervisores.</p></div>
+      </div>
+      <div class="case-tags"><span class="tag">C# / .NET</span><span class="tag">SQL Server</span><span class="tag">Reportería</span><span class="tag">Auditoría</span></div>
+    </article>
+
+    <article class="case">
+      <div class="case-top">
+        <div>
+          <h3>Consulta guiada de reglas de visado</h3>
           <div class="case-ctx">Power Platform</div>
         </div>
-        <div class="case-metric">~30<small>usuarios activos</small></div>
+        <div class="case-metric">868<small>reglas de negocio</small></div>
       </div>
       <div class="case-body">
-        <div class="cb"><h4>Problema</h4><p>Tres frentes distintos con trabajo manual: seguimiento de iniciativas, procesos repetitivos en Emisión y consultas constantes a manuales internos.</p></div>
-        <div class="cb"><h4>Decisión</h4><p>Solución sobre Power Apps, Power Automate, SharePoint y AI Builder. Diseñé con consultas delegables y manejo de timeouts para operar dentro de los límites reales de la plataforma.</p></div>
-        <div class="cb"><h4>Resultado</h4><p>Tres procesos automatizados en producción, adoptados por ~30 personas de distintas áreas.</p></div>
+        <div class="cb"><h4>Problema</h4><p>Las reglas de visado de endosos se consultaban buscando a mano en una matriz de hoja de cálculo: 2 a 5 minutos por consulta, con riesgo de leer la columna equivocada y aplicar una regla incorrecta.</p></div>
+        <div class="cb"><h4>Decisión</h4><p>Normalicé las 868 reglas a formato consultable y las llevé a una aplicación de consulta guiada con carga en memoria, para respuesta instantánea sin tocar la matriz original.</p></div>
+        <div class="cb"><h4>Resultado</h4><p>~200 consultas diarias de más de 40 usuarios en 4 áreas, resueltas al instante. Además del tiempo, eliminó el riesgo de error de lectura sobre una decisión de suscripción.</p></div>
       </div>
-      <div class="case-tags"><span class="tag">Power Apps</span><span class="tag">Power Automate</span><span class="tag">SharePoint</span><span class="tag">AI Builder</span></div>
+      <div class="case-tags"><span class="tag">Power Apps</span><span class="tag">SharePoint</span><span class="tag">Normalización de datos</span></div>
     </article>
   </div>
 </section>
@@ -274,7 +306,7 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--gold);outline-offse
   <div class="wrap">
     <div class="eyebrow">SyStark Solutions</div>
     <h2>Productos propios en producción</h2>
-    <p class="sec-intro">SaaS B2B multi-tenant para PYMEs peruanas. Soy responsable de arquitectura, stack y desarrollo. Cuatro clientes activos.</p>
+    <p class="sec-intro">SaaS B2B multi-tenant para PYMEs peruanas, sobre una plataforma base que adapto por vertical en lugar de construir un sistema a medida por cliente. Responsable de producto, arquitectura y relación con el cliente. Cuatro clientes activos.</p>
 
     <div class="prods">
       <div class="prod">
@@ -290,7 +322,7 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--gold);outline-offse
           <li>Reportería operativa</li>
         </ul>
         <div class="prod-foot">
-          <span class="tag">Next.js 15</span><span class="tag">TypeScript</span><span class="tag">PostgreSQL</span>
+          <span class="tag">Next.js</span><span class="tag">TypeScript</span><span class="tag">PostgreSQL</span>
         </div>
         <a href="mailto:ventas@systark.com?subject=Consulta%20-%20Gestion%20logistica%20y%20ventas" class="prod-link">Contactar</a>
       </div>
@@ -308,7 +340,7 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--gold);outline-offse
           <li>Registro de historia clínica</li>
         </ul>
         <div class="prod-foot">
-          <span class="tag">Next.js 15</span><span class="tag">TypeScript</span><span class="tag">PostgreSQL</span>
+          <span class="tag">Next.js</span><span class="tag">TypeScript</span><span class="tag">PostgreSQL</span>
         </div>
         <a href="mailto:ventas@systark.com?subject=Consulta%20-%20Gestion%20clinica" class="prod-link">Contactar</a>
       </div>
@@ -324,26 +356,26 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--gold);outline-offse
       <div class="job">
         <div class="job-date">MAR 2022 - ACTUALIDAD</div>
         <h3>Analista de Planeamiento de Operaciones</h3>
-        <div class="job-co">La Positiva Seguros y Reaseguros <span>· Lima · Híbrido · Rol técnico: desarrollo y automatización</span></div>
-        <p>Desarrollo software a medida para Planeamiento de Operaciones: aplicaciones .NET sobre el datamart corporativo, automatizaciones en Power Platform y migración de formularios legacy a OutSystems con backend en AWS. Punto de consulta técnica del área para decisiones de stack y diseño de soluciones.</p>
+        <div class="job-co">La Positiva Seguros y Reaseguros <span>· Lima · Híbrido · Rol técnico: desarrollo, arquitectura de soluciones y automatización</span></div>
+        <p>Responsable de las soluciones internas que sostienen procesos operativos críticos: emisión de notificaciones con exposición regulatoria, gestión de cartera de cobranza, autogestión de corredores en OutSystems y automatización sobre Power Platform. Conduzco las soluciones de extremo a extremo, del levantamiento con el negocio hasta la transferencia al área que las opera.</p>
       </div>
       <div class="job">
         <div class="job-date">2024 - ACTUALIDAD</div>
         <h3>Cofundador · Desarrollo de producto</h3>
         <div class="job-co">SyStark Solutions <span>· Arequipa · Remoto</span></div>
-        <p>Cofundé SyStark para desarrollar SaaS B2B dirigido a PYMEs peruanas, un segmento mal atendido por el software empresarial local. Responsable de arquitectura, selección de stack y desarrollo de ambos productos.</p>
+        <p>Cofundé SyStark para desarrollar SaaS B2B dirigido a PYMEs peruanas, un segmento mal atendido por el software empresarial local. Diseñé la plataforma base multi-tenant y conduzco la relación directa con cada cliente, del alcance al soporte en producción.</p>
       </div>
       <div class="job past">
         <div class="job-date">SEP 2015 - FEB 2022</div>
         <h3>Analista de Sistemas Senior</h3>
         <div class="job-co">Lápices y Conexos S.A. - Layconsa <span>· Arequipa</span></div>
-        <p>Desarrollo de aplicaciones internas en una empresa industrial con operación nacional: apps móviles Xamarin/.NET para más de 25 vendedores en campo, evolución del ERP corporativo durante 6 años y pipelines de consolidación de datos. Durante la pandemia implementé las aplicaciones web que sostuvieron la operación en remoto.</p>
+        <p>Desarrollé como único desarrollador la aplicación móvil corporativa en Xamarin/.NET y sus APIs REST, usada por más de 25 vendedores y cobradores a nivel nacional para consultar cartera y stock en tiempo real frente al cliente. Durante la pandemia implementé las aplicaciones web que sostuvieron ventas, conciliaciones, caja y cierres contables en remoto. Consolidación de las bases de datos core y evolución del ERP corporativo durante 6 años.</p>
       </div>
       <div class="job past">
         <div class="job-date">JUN 2012 - MAY 2015</div>
         <h3>Encargado de Sistemas</h3>
         <div class="job-co">TSD Distribuciones - Quimera HG <span>· Arequipa</span></div>
-        <p>Primer rol con responsabilidad completa sobre los sistemas de la empresa. Reingeniería de los módulos de logística y contabilidad en .NET, integrando datos históricos dispersos en MySQL, PostgreSQL y Oracle. Contraparte técnica frente al proveedor del ERP.</p>
+        <p>Reconstruí el kárdex valorizado y los libros contables del período 2008-2012 requeridos en una fiscalización de SUNAT, consolidando movimientos históricos dispersos en Oracle, PostgreSQL y MySQL. El trabajo se originó en la detección temprana de saldos negativos de inventario, revisados junto al auditor principal meses antes de la fiscalización; la información resultante fue validada por auditoría. Contraparte técnica frente al proveedor del ERP.</p>
       </div>
     </div>
   </div>
@@ -355,24 +387,32 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--gold);outline-offse
     <h2>Herramientas por nivel de uso</h2>
     <p class="sec-intro">Ordenado por profundidad real, no por cantidad.</p>
     <div class="stack-row">
-      <div class="stack-lvl">Núcleo<small>uso diario · 5+ años</small></div>
-      <div class="stack-items"><span>C# / .NET</span><span>ASP.NET</span><span>SQL Server</span><span>T-SQL</span><span>API REST</span><span>N-Capas</span><span>MVC</span></div>
+      <div class="stack-lvl">Núcleo<small>uso diario · 12 años</small></div>
+      <div class="stack-items"><span>C# / .NET</span><span>ASP.NET</span><span>WPF</span><span>SQL Server</span><span>T-SQL</span><span>API REST</span><span>N-Capas</span><span>MVC</span><span>Modelado de datos</span></div>
     </div>
     <div class="stack-row">
       <div class="stack-lvl">Low-Code<small>+3 años</small></div>
-      <div class="stack-items"><span>Power Apps</span><span>Power Automate</span><span>SharePoint</span><span>AI Builder</span><span>OutSystems</span></div>
+      <div class="stack-items"><span>OutSystems</span><span>Power Apps</span><span>Power Automate</span><span>Copilot</span><span>SharePoint</span></div>
     </div>
     <div class="stack-row">
-      <div class="stack-lvl">Complementario<small>uso activo</small></div>
-      <div class="stack-items"><span>Next.js 15</span><span>TypeScript</span><span>PostgreSQL</span><span>AWS</span><span>Docker</span><span>Git</span><span>Jira</span></div>
+      <div class="stack-lvl">Web y producto<small>uso activo</small></div>
+      <div class="stack-items"><span>Next.js</span><span>TypeScript</span><span>PostgreSQL</span><span>Multi-tenant</span><span>Docker</span></div>
+    </div>
+    <div class="stack-row">
+      <div class="stack-lvl">Datos y reportería<small></small></div>
+      <div class="stack-items"><span>SSIS</span><span>Power BI</span><span>VBA</span></div>
+    </div>
+    <div class="stack-row">
+      <div class="stack-lvl">Cloud y herramientas<small></small></div>
+      <div class="stack-items"><span>AWS</span><span>Git</span><span>Jira</span><span>Miro</span></div>
     </div>
     <div class="stack-row">
       <div class="stack-lvl">Exposición previa<small>proyectos anteriores</small></div>
-      <div class="stack-items"><span>Xamarin</span><span>Blazor WASM</span><span>VB.NET</span><span>Node.js</span><span>SSIS / SSRS</span><span>Power BI</span><span>MySQL</span><span>Oracle</span></div>
+      <div class="stack-items"><span>Xamarin</span><span>VB.NET</span><span>Blazor WASM</span><span>Node.js</span><span>MySQL</span><span>Oracle</span></div>
     </div>
     <div class="stack-row">
       <div class="stack-lvl">Metodologías<small></small></div>
-      <div class="stack-items"><span>Scrum</span><span>ITIL 4</span><span>Análisis funcional</span><span>Gestión de requerimientos</span></div>
+      <div class="stack-items"><span>Scrum</span><span>ITIL 4</span><span>Gestión de portafolio</span><span>Gestión de proyectos (PMBOK)</span><span>Análisis funcional</span></div>
     </div>
   </div>
 </section>
@@ -381,7 +421,7 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--gold);outline-offse
   <div class="wrap">
     <div class="eyebrow" style="justify-content:center;color:var(--white-45)">Contacto</div>
     <h2>Conversemos</h2>
-    <p>Abierto a oportunidades en Lima, remoto o nearshore. Español nativo · Portugués C1 · Inglés B1.</p>
+    <p>Abierto a oportunidades en Lima, remoto o nearshore. Español nativo · Portugués C1 · Inglés: lectura técnica, conversacional básico.</p>
     <div class="contact-links">
       <a href="mailto:jossimarmeza@outlook.com.pe" class="btn btn-p">jossimarmeza@outlook.com.pe</a>
       <a href="https://www.linkedin.com/in/jossimarmeza" class="btn btn-s" target="_blank" rel="noopener">LinkedIn ↗</a>
